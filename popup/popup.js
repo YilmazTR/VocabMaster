@@ -5,24 +5,36 @@ document.addEventListener('DOMContentLoaded', async () => {
   const btnQuiz = document.getElementById('btn-quiz');
   const btnSettings = document.getElementById('btn-settings');
 
-  // Get word count
-  chrome.runtime.getBackgroundUrl((url) => {
-    // We need to communicate with the background script or storage
-  });
+  console.log('VocabMaster Popup: Initialized');
 
-  // Actually, it's easier to just read from storage directly in the popup
-  chrome.storage.local.get(['vocab_words'], (result) => {
+  // Fetch and display word count
+  try {
+    const result = await chrome.storage.local.get(['vocab_words']);
     const words = result['vocab_words'] || [];
-    wordCountElement.textContent = words.length;
-  });
+    if (wordCountElement) {
+      wordCountElement.textContent = words.length;
+    }
+  } catch (err) {
+    console.error('VocabMaster Popup: Error fetching words from storage', err);
+  }
 
-  // Open Quiz
-  btnQuiz.addEventListener('click', () => {
-    chrome.tabs.create({ url: chrome.runtime.getURL('quiz/quiz.html') });
-  });
+  // Handle Quiz Button Click
+  if (btnQuiz) {
+    btnQuiz.addEventListener('click', () => {
+      console.log('VocabMaster Popup: Opening Quiz...');
+      chrome.tabs.create({ url: chrome.runtime.getURL('quiz/quiz.html') });
+    });
+  } else {
+    console.error('VocabMaster Popup: Element #btn-quiz not found');
+  }
 
-  // Open Settings
-  btnSettings.addEventListener('click', () => {
-    chrome.runtime.openOptionsPage();
-  });
+  // Handle Settings Button Click
+  if (btnSettings) {
+    btnSettings.addEventListener('click', () => {
+      console.log('VocabMaster Popup: Opening Options Page...');
+      chrome.runtime.openOptionsPage();
+    });
+  } else {
+    console.error('VocabMaster Popup: Element #btn-settings not found');
+  }
 });
