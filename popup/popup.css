@@ -1,0 +1,25 @@
+/* vocabmaster/popup/popup.css */
+
+#popup-container {
+  width: 250px;
+}
+
+h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+#stats {
+  text-align: center;
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+}

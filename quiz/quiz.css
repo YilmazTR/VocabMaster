@@ -1,0 +1,28 @@
+/* vocabmaster/quiz/quiz.css */
+
+#question-area {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#target-word {
+  font-size: 2em;
+  color: var(--primary-color);
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  text-align: left;
+}
+
+#feedback-area {
+  text-align: center;
+  height: 24px;
+}
+
+#quiz-setup, #quiz-result {
+  text-align: center;
+}

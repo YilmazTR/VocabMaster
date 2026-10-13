@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <title>VocabMaster Settings</title>
+</head>
+<body>
+  <div class="container">
+    <h1>VocabMaster Settings</h1>
+    
+    <div class="card">
+      <h3>General Settings</h3>
+      <label for="target-lang">Target Language:</label>
+      <select id="target-lang">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="it">Italian</option>
+        <option value="ja">Japanese</option>
+      </select>
+
+      <label>
+        <input type="checkbox" id="feature-toggle"> Enable Word Capture
+      </label>
+    </div>
+
+    <div class="card">
+      <h3>Review Schedule</h3>
+      <label for="review-interval">Review Every:</label>
+      <select id="review-interval">
+        <option value="3">Few days</option>
+        <option value="7">One week</option>
+        <option value="30">One month</option>
+      </select>
+
+      <label>
+        <input type="checkbox" id="notification-toggle"> Enable Notifications
+      </label>
+    </div>
+
+    <button id="btn-save">Save Settings</button>
+    <p id="status-msg"></p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
